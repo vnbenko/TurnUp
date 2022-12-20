@@ -13,6 +13,8 @@
 		B799F51A295098FA00F32D4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B799F518295098FA00F32D4C /* Main.storyboard */; };
 		B799F51C295098FD00F32D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B799F51B295098FD00F32D4C /* Assets.xcassets */; };
 		B799F51F295098FD00F32D4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B799F51D295098FD00F32D4C /* LaunchScreen.storyboard */; };
+		B799F5272950FAC800F32D4C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B799F5262950FAC800F32D4C /* Card.swift */; };
+		B799F5292950FB0F00F32D4C /* TurnUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B799F5282950FB0F00F32D4C /* TurnUpGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B799F51B295098FD00F32D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B799F51E295098FD00F32D4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B799F520295098FD00F32D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B799F5262950FAC800F32D4C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B799F5282950FB0F00F32D4C /* TurnUpGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnUpGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				B799F512295098FA00F32D4C /* AppDelegate.swift */,
 				B799F514295098FA00F32D4C /* SceneDelegate.swift */,
 				B799F516295098FA00F32D4C /* ViewController.swift */,
+				B799F5262950FAC800F32D4C /* Card.swift */,
+				B799F5282950FB0F00F32D4C /* TurnUpGame.swift */,
 				B799F518295098FA00F32D4C /* Main.storyboard */,
 				B799F51B295098FD00F32D4C /* Assets.xcassets */,
 				B799F51D295098FD00F32D4C /* LaunchScreen.storyboard */,
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B799F5292950FB0F00F32D4C /* TurnUpGame.swift in Sources */,
 				B799F517295098FA00F32D4C /* ViewController.swift in Sources */,
 				B799F513295098FA00F32D4C /* AppDelegate.swift in Sources */,
 				B799F515295098FA00F32D4C /* SceneDelegate.swift in Sources */,
+				B799F5272950FAC800F32D4C /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,11 +298,13 @@
 				DEVELOPMENT_TEAM = 8M97DT7VG5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TurnUp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +312,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.iBenko.TurnUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,11 +331,13 @@
 				DEVELOPMENT_TEAM = 8M97DT7VG5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TurnUp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +345,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.iBenko.TurnUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
