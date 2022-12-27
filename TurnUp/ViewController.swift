@@ -9,39 +9,31 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var touchesLabel: UILabel!
-    @IBOutlet var buttonCollection: [UIButton]!
+    @IBOutlet private weak var touchesLabel: UILabel!
+    @IBOutlet private var buttonCollection: [UIButton]!
     
-    var emojiCollection = ["💡", "🔥", "🌝", "❤️", "🐢", "💡", "🔥", "🌝", "❤️", "🐢", "🏆", "🚦", "⭐️", "🏆", "🚦", "⭐️"]
-    
-    var touches = 0 {
+    private(set) var touches = 0 {
         didSet {
             touchesLabel.text = "Touches: \(touches)"
         }
     }
     
-    lazy var game = TurnUpGame(numberOfPairsOfCards: numberOfPairsOfCards)
-    
+    private lazy var game = TurnUpGame(numberOfPairsOfCards: numberOfPairsOfCards)
+    private var emojiCollection = ["💡", "🔥", "🌝", "❤️", "🐢", "💡", "🔥", "🌝", "❤️", "🐢", "🏆", "🚦", "⭐️", "🏆", "🚦", "⭐️"]
+    private var emojiDictionary = [Int: String]()
+
     var numberOfPairsOfCards: Int {
         return (buttonCollection.count + 1) / 2
     }
     
-    var emojiDictionary = [Int: String]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-    }
-    
-    @IBAction func buttonAction(_ sender: UIButton) {
+    @IBAction private func buttonAction(_ sender: UIButton) {
         touches += 1
         guard let buttonIndex = buttonCollection.firstIndex(of: sender) else { return }
         game.chooseCard(at: buttonIndex)
         updateViewFromModel()
     }
     
-    func updateViewFromModel() {
+    private func updateViewFromModel() {
         for index in buttonCollection.indices {
             let button = buttonCollection[index]
             let card = game.cards[index]
@@ -56,13 +48,23 @@ class ViewController: UIViewController {
         }
     }
     
-    func emojiIdentifier(for card: Card) -> String {
+    private func emojiIdentifier(for card: Card) -> String {
         if emojiDictionary[card.identifier] == nil {
-            let randomIndex = Int.random(in: 0...emojiCollection.count)
-            emojiDictionary[card.identifier] = emojiCollection.remove(at: randomIndex)
+            emojiDictionary[card.identifier] = emojiCollection.remove(at: emojiCollection.count.arc4randomExtension)
         }
         return emojiDictionary[card.identifier] ?? "?"
     }
     
 }
 
+extension Int {
+    var arc4randomExtension: Int {
+        if self > 0 {
+            return Int(arc4random_uniform(UInt32(self)))
+        } else if self < 0 {
+            return -Int(arc4random_uniform(UInt32(abs(self))))
+        } else {
+            return 0
+        }
+    }
+}

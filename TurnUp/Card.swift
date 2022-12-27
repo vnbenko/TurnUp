@@ -14,9 +14,9 @@ struct Card {
     var identifier: Int
     
     // предоставляет доступ к функционалу данной структуры до ее инициализации, т.е. доступ к свойствам и методам самого типа Сard. Обращение к свойствам и методам через Сard.identifierNumber
-    static var identifierNumber = 0
+    private static var identifierNumber = 0
     
-    static func identifierGenerator() -> Int {
+    private static func identifierGenerator() -> Int {
         identifierNumber += 1
         return identifierNumber
     }
